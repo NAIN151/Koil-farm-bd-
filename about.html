@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>আমাদের সম্পর্কে - কোয়েল পাখি ফার্ম</title>
+    <meta name="description" content="কোয়েল পাখি ফার্মের ইতিহাস, লক্ষ্য ও ভবিষ্যৎ পরিকল্পনা।">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .page-header {
+            background: linear-gradient(135deg, var(--soil) 0%, var(--soil-light) 100%);
+            padding: 60px 0 40px;
+            text-align: center;
+            color: var(--white);
+        }
+        .page-header h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+        }
+        .page-header p {
+            opacity: 0.85;
+            margin-top: 8px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .about-img {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-deep);
+        }
+        .about-img img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+        }
+        .about-text h2 {
+            font-size: 1.7rem;
+            color: var(--soil);
+            margin-bottom: 15px;
+        }
+        .about-text p {
+            color: var(--gray);
+            margin-bottom: 14px;
+            font-size: 0.95rem;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, #e8f5e9 0%, var(--warm) 100%);
+            border-left: 4px solid var(--leaf);
+            padding: 20px 22px;
+            border-radius: 0 12px 12px 0;
+            margin: 20px 0;
+        }
+        .highlight-box h4 {
+            color: var(--leaf);
+            margin-bottom: 8px;
+        }
+        .highlight-box p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .timeline {
+            background: var(--white);
+        }
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        .timeline-card {
+            background: var(--egg);
+            padding: 30px 25px;
+            border-radius: 14px;
+            text-align: center;
+            border: 1px solid var(--egg-dark);
+            transition: transform 0.3s;
+        }
+        .timeline-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+        .timeline-card .year {
+            display: inline-block;
+            background: var(--leaf);
+            color: var(--white);
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        .timeline-card h3 {
+            font-size: 1.15rem;
+            color: var(--soil);
+            margin-bottom: 10px;
+        }
+        .timeline-card p {
+            font-size: 0.88rem;
+            color: var(--gray);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+        }
+        .gallery-item {
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(93,64,55,0.8));
+            padding: 20px 15px 15px;
+            color: var(--white);
+            font-size: 0.9rem;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .about-content { grid-template-columns: 1fr; }
+            .about-img { order: -1; }
+            .timeline-grid { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">
+                <div class="nav-logo-icon">ক</div>
+                <span>কোয়েল পাখি ফার্ম</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">হোম</a></li>
+                <li><a href="about.html" class="active">আমাদের সম্পর্কে</a></li>
+                <li><a href="products.html">পণ্য</a></li>
+                <li><a href="order.html">অর্ডার করুন</a></li>
+                <li><a href="contact.html">যোগাযোগ</a></li>
+            </ul>
+            <button class="nav-mobile-btn" onclick="toggleMenu()">&#9776;</button>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>আমাদের সম্পর্কে</h1>
+            <p>একটি ছোট স্বপ্ন থেকে শুরু, এখন বিশ্বস্ত ফার্ম</p>
+        </div>
+    </div>
+
+    <section class="section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1548550023-2bdb3c5b5b0c?w=800&q=80" alt="বাংলাদেশের কোয়েল ফার্ম" class="protect-img" oncontextmenu="return false;">
+                </div>
+                <div class="about-text">
+                    <h2>আমাদের গল্প</h2>
+                    <p>জুলাই ২০২৫। একটি ছোট খামার থেকে আমাদের যাত্রা শুরু। প্রথমে মাত্র কয়েকটি কোয়েল পাখি দিয়ে শুরু হলেও, আজ আমাদের খামারে ৪৫+ সুস্থ পাখি প্রতিদিন ৪০+ তাজা ডিম উৎপাদন করছে।</p>
+                    <p>আমাদের লক্ষ্য শুধু বিক্রি নয় — মানুষের হাতে সুস্থ, পুষ্টিকর খাবার তুলে দেওয়া। প্রতিটি পাখিকে আমরা নিজের পরিবারের সদস্যের মতো যত্ন নেই।</p>
+                    <div class="highlight-box">
+                        <h4>ভবিষ্যৎ পরিকল্পনা</h4>
+                        <p>শীঘ্রই আমাদের খামারে ১০০+ পাখি হবে। পাশাপাশি অন্যান্য কৃষি পণ্য (মুরগি, হাঁস, সবজি) যুক্ত করে একটি সম্পূর্ণ কৃষি খামারে পরিণত হবে ইনশাআল্লাহ।</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="timeline section">
+        <div class="container">
+            <h2 class="section-title">আমাদের যাত্রা</h2>
+            <div class="divider"></div>
+            <div class="timeline-grid">
+                <div class="timeline-card">
+                    <span class="year">জুলাই ২০২৫</span>
+                    <h3>যাত্রা শুরু</h3>
+                    <p>মাত্র ১০টি পাখি দিয়ে আমাদের খামারের যাত্রা শুরু হয়। ছোট একটি ঘরে স্বপ্ন নিয়ে কাজ শুরু।</p>
+                </div>
+                <div class="timeline-card">
+                    <span class="year">বর্তমান</span>
+                    <h3>৪৫+ পাখি</h3>
+                    <p>আজ আমাদের খামারে ৪৫+ পাখি। প্রতিদিন ৪০+ ডিম উৎপাদন। স্থানীয় বাজারে বিশ্বস্ত সরবরাহকারী।</p>
+                </div>
+                <div class="timeline-card">
+                    <span class="year">ভবিষ্যৎ</span>
+                    <h3>১০০+ ও কৃষি</h3>
+                    <p>শীঘ্রই ১০০+ পাখি। অন্যান্য কৃষি পণ্য যুক্ত করে সম্পূর্ণ কৃষি খামারে রূপান্তর।</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">খামারের ছবি</h2>
+            <div class="divider"></div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?w=800&q=80" alt="খাঁচার পাখি" class="protect-img" oncontextmenu="return false;">
+                    <div class="gallery-overlay">খাঁচার পাখি</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1598965402089-2746c8b4b555?w=800&q=80" alt="ডিম সংগ্রহ" class="protect-img" oncontextmenu="return false;">
+                    <div class="gallery-overlay">ডিম সংগ্রহ</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?w=800&q=80" alt="তাজা ডিম" class="protect-img" oncontextmenu="return false;">
+                    <div class="gallery-overlay">তাজা ডিম</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?w=800&q=80" alt="ডিমের ঝুড়ি" class="protect-img" oncontextmenu="return false;">
+                    <div class="gallery-overlay">ডিমের ঝুড়ি</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>কোয়েল পাখি ফার্ম</h3>
+                    <p>বাংলাদেশের বিশ্বস্ত কোয়েল পাখি ও ডিম সরবরাহকারী। জুলাই ২০২৫ থেকে আমাদের যাত্রা।</p>
+                    <div class="footer-phone">&#9742; 01729343444</div>
+                </div>
+                <div class="footer-links">
+                    <h4>পেজ</h4>
+                    <ul>
+                        <li><a href="index.html">হোম</a></li>
+                        <li><a href="about.html">আমাদের সম্পর্কে</a></li>
+                        <li><a href="products.html">পণ্য</a></li>
+                        <li><a href="contact.html">যোগাযোগ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>সেবা</h4>
+                    <ul>
+                        <li><a href="order.html">অর্ডার করুন</a></li>
+                        <li><a href="products.html">পণ্য তালিকা</a></li>
+                        <li><a href="contact.html">ডেলিভারি তথ্য</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>যোগাযোগ</h4>
+                    <ul>
+                        <li><a href="tel:01729343444">ফোন: 01729343444</a></li>
+                        <li><a href="https://wa.me/8801729343444" target="_blank">WhatsApp</a></li>
+                        <li>বাংলাদেশ</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; ২০২৬ কোয়েল পাখি ফার্ম। সর্বস্বত্ব সংরক্ষিত।</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('show');
+        }
+        document.querySelectorAll('.nav-links a').forEach(a => {
+            a.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('show');
+            });
+        });
+        document.addEventListener('contextmenu', e => {
+            if (e.target.tagName === 'IMG') e.preventDefault();
+        });
+    </script>
+</body>
+</html>

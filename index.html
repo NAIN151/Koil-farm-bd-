@@ -3,238 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>কোয়েল পাখি ফার্ম - Koyal Bird Farm Bangladesh</title>
-    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>কোয়েল পাখি ফার্ম - তাজা ডিম ও সুস্থ পাখি</title>
+    <meta name="description" content="বাংলাদেশের বিশ্বস্ত কোয়েল পাখি ফার্ম। তাজা ডিম ও সুস্থ পাখি সরবরাহ।">
+    <link rel="stylesheet" href="style.css">
     <style>
-        :root {
-            --green: #1b5e20;
-            --green-light: #2e7d32;
-            --gold: #f9a825;
-            --red: #c62828;
-            --dark: #1a1a1a;
-            --gray: #666;
-            --light: #f5f5f5;
-            --white: #fff;
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Hind Siliguri', sans-serif;
-            background: var(--light);
-            color: var(--dark);
-            line-height: 1.7;
-        }
-
-        /* Nav */
-        nav {
-            background: var(--green);
-            padding: 12px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-        .nav-wrap {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo {
-            color: var(--white);
-            font-size: 1.4rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .logo-icon {
-            width: 36px; height: 36px;
-            background: var(--gold);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--dark);
-            font-weight: 700;
-        }
-        .nav-links { display: flex; gap: 25px; list-style: none; }
-        .nav-links a {
-            color: var(--white);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: opacity 0.3s;
-        }
-        .nav-links a:hover { opacity: 0.8; }
-        .mobile-toggle {
-            display: none;
-            color: var(--white);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Hero */
+        /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
-            padding: 60px 15px;
-            text-align: center;
+            background: linear-gradient(135deg, var(--soil) 0%, var(--soil-light) 100%);
+            padding: 80px 0 60px;
             color: var(--white);
+            position: relative;
+            overflow: hidden;
         }
-        .hero h1 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 10px;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('hero_birds.jpg') center/cover;
+            opacity: 0.25;
         }
-        .hero h1 span { color: var(--gold); }
-        .hero p {
-            font-size: 1rem;
+        .hero-inner {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .hero-text h1 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 18px;
+        }
+        .hero-text h1 span {
+            color: var(--gold);
+        }
+        .hero-text p {
+            font-size: 1.05rem;
             opacity: 0.9;
-            max-width: 500px;
-            margin: 0 auto 25px;
+            margin-bottom: 28px;
+            max-width: 480px;
+        }
+        .hero-btns {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
         }
         .hero-img {
-            max-width: 600px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-deep);
+            transform: rotate(1deg);
+            transition: transform 0.4s;
+        }
+        .hero-img:hover {
+            transform: rotate(0deg);
+        }
+        .hero-img img {
             width: 100%;
-            border-radius: 12px;
-            margin: 20px auto 0;
-            display: block;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            height: 320px;
+            object-fit: cover;
         }
-        .btn {
-            display: inline-block;
-            padding: 12px 28px;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-            font-size: 0.95rem;
-            cursor: pointer;
-            border: none;
-            transition: all 0.3s;
-        }
-        .btn-gold {
-            background: var(--gold);
-            color: var(--dark);
-        }
-        .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(249,168,37,0.4); }
-        .btn-outline {
-            background: transparent;
-            color: var(--white);
-            border: 2px solid var(--white);
-            margin-left: 10px;
-        }
-        .btn-outline:hover { background: var(--white); color: var(--green); }
 
-        /* Section */
-        section { padding: 50px 15px; }
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
+        /* Stats Bar */
+        .stats-bar {
+            background: var(--white);
+            padding: 35px 0;
+            margin-top: -30px;
+            position: relative;
+            z-index: 10;
+            box-shadow: var(--shadow);
+            border-radius: 16px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
         }
-        .sec-title {
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
             text-align: center;
-            font-size: 1.8rem;
+        }
+        .stat h3 {
+            font-size: 2rem;
+            color: var(--leaf);
             font-weight: 700;
-            color: var(--green);
-            margin-bottom: 8px;
         }
-        .sec-sub {
-            text-align: center;
+        .stat p {
             color: var(--gray);
-            font-size: 0.9rem;
-            margin-bottom: 35px;
-        }
-        .line {
-            width: 50px;
-            height: 3px;
-            background: var(--gold);
-            margin: 0 auto 35px;
-            border-radius: 2px;
-        }
-
-        /* About */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-        .about-img img {
-            width: 100%;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        .about-text h3 {
-            font-size: 1.4rem;
-            color: var(--green);
-            margin-bottom: 15px;
-        }
-        .about-text p {
-            color: var(--gray);
-            font-size: 0.95rem;
-            margin-bottom: 12px;
-        }
-        .features {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-top: 20px;
-        }
-        .feat {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 500;
         }
-        .feat-icon {
-            width: 28px; height: 28px;
-            background: var(--green);
-            color: var(--white);
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-            flex-shrink: 0;
-        }
 
-        /* Products */
-        .products { background: var(--white); }
+        /* Products Preview */
+        .products-preview {
+            background: var(--white);
+        }
         .prod-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
+            gap: 28px;
         }
         .prod-card {
-            background: var(--light);
-            border-radius: 15px;
+            background: var(--egg);
+            border-radius: 14px;
             overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-            transition: transform 0.3s;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+            border: 1px solid var(--egg-dark);
         }
-        .prod-card:hover { transform: translateY(-5px); }
+        .prod-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-deep);
+        }
         .prod-img {
-            height: 180px;
+            height: 200px;
             overflow: hidden;
         }
         .prod-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.4s;
         }
-        .prod-info { padding: 20px; }
+        .prod-card:hover .prod-img img {
+            transform: scale(1.08);
+        }
+        .prod-info {
+            padding: 22px;
+        }
         .prod-info h3 {
-            font-size: 1.1rem;
-            margin-bottom: 6px;
+            font-size: 1.15rem;
+            margin-bottom: 8px;
+            color: var(--soil);
         }
         .prod-info p {
-            font-size: 0.85rem;
+            font-size: 0.88rem;
             color: var(--gray);
-            margin-bottom: 12px;
+            margin-bottom: 14px;
         }
-        .price-tag {
+        .prod-price {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -242,360 +151,186 @@
         .price {
             font-size: 1.3rem;
             font-weight: 700;
-            color: var(--red);
-        }
-        .btn-sm {
-            padding: 8px 18px;
-            font-size: 0.85rem;
+            color: var(--rust);
         }
 
-        /* Order Section */
-        .order { background: #e8f5e9; }
-        .order-box {
-            background: var(--white);
-            border-radius: 15px;
-            padding: 35px;
-            max-width: 700px;
-            margin: 0 auto;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        /* Why Choose Us */
+        .why-us {
+            background: linear-gradient(135deg, #e8f5e9 0%, var(--egg) 100%);
         }
-        .form-group {
-            margin-bottom: 18px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 6px;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            font-family: inherit;
-            font-size: 0.95rem;
-            transition: border-color 0.3s;
-        }
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--green);
-        }
-        .form-group textarea {
-            resize: vertical;
-            min-height: 80px;
-        }
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-
-        /* Payment */
-        .payment-methods {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-            margin: 15px 0;
-        }
-        .pay-option {
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            padding: 15px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        .pay-option:hover,
-        .pay-option.active {
-            border-color: var(--green);
-            background: #e8f5e9;
-        }
-        .pay-option img {
-            width: 50px;
-            height: 50px;
-            object-fit: contain;
-            margin-bottom: 8px;
-        }
-        .pay-option h4 {
-            font-size: 0.9rem;
-            color: var(--dark);
-        }
-        .pay-option p {
-            font-size: 0.75rem;
-            color: var(--gray);
-        }
-
-        /* Gallery */
-        .gal-grid {
+        .why-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 12px;
+            gap: 25px;
         }
-        .gal-item {
-            border-radius: 10px;
-            overflow: hidden;
-            position: relative;
-        }
-        .gal-item img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            transition: transform 0.4s;
-        }
-        .gal-item:hover img { transform: scale(1.1); }
-        .gal-overlay {
-            position: absolute;
-            bottom: 0; left: 0; right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.7));
-            padding: 15px;
-            color: var(--white);
-            font-size: 0.85rem;
-            transform: translateY(100%);
+        .why-card {
+            background: var(--white);
+            padding: 30px 22px;
+            border-radius: 14px;
+            text-align: center;
+            box-shadow: var(--shadow);
             transition: transform 0.3s;
         }
-        .gal-item:hover .gal-overlay { transform: translateY(0); }
-
-        /* Contact */
-        .contact { background: var(--white); }
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
+        .why-card:hover {
+            transform: translateY(-4px);
         }
-        .contact-info h3 {
-            font-size: 1.3rem;
-            color: var(--green);
-            margin-bottom: 20px;
-        }
-        .c-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 20px;
-        }
-        .c-icon {
-            width: 42px; height: 42px;
-            background: var(--green);
-            border-radius: 10px;
+        .why-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--leaf);
+            color: var(--white);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--white);
-            font-size: 1.1rem;
-            flex-shrink: 0;
+            font-size: 1.4rem;
+            margin: 0 auto 15px;
         }
-        .c-detail h4 { font-size: 0.95rem; margin-bottom: 3px; }
-        .c-detail p { color: var(--gray); font-size: 0.9rem; }
-        .c-detail a { color: var(--green); text-decoration: none; }
-        .map-box {
-            background: var(--light);
-            border-radius: 12px;
-            padding: 25px;
-            text-align: center;
+        .why-card h4 {
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+            color: var(--soil);
         }
-        .map-box h4 {
-            color: var(--green);
-            margin-bottom: 10px;
-        }
-        .map-box p {
+        .why-card p {
+            font-size: 0.85rem;
             color: var(--gray);
-            font-size: 0.9rem;
         }
-        .big-number {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--red);
-            margin: 10px 0;
-        }
-        .whatsapp-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: #25d366;
-            color: var(--white);
-            padding: 12px 25px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 15px;
-            transition: transform 0.3s;
-        }
-        .whatsapp-btn:hover { transform: translateY(-2px); }
 
-        /* Footer */
-        footer {
-            background: var(--dark);
+        /* CTA Section */
+        .cta {
+            background: var(--soil);
             color: var(--white);
-            padding: 40px 15px 15px;
-        }
-        .foot-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-        .foot-brand h3 {
-            color: var(--gold);
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-        }
-        .foot-brand p {
-            color: rgba(255,255,255,0.7);
-            font-size: 0.85rem;
-        }
-        .foot-links h4 {
-            color: var(--gold);
-            font-size: 1rem;
-            margin-bottom: 15px;
-        }
-        .foot-links ul { list-style: none; }
-        .foot-links li { margin-bottom: 8px; }
-        .foot-links a {
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-            font-size: 0.85rem;
-            transition: color 0.3s;
-        }
-        .foot-links a:hover { color: var(--gold); }
-        .foot-bottom {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 15px;
             text-align: center;
-            font-size: 0.8rem;
-            color: rgba(255,255,255,0.5);
+            padding: 60px 0;
+        }
+        .cta h2 {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+        .cta p {
+            opacity: 0.85;
+            margin-bottom: 25px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .mobile-toggle { display: block; }
-            .hero h1 { font-size: 1.6rem; }
-            .about-grid { grid-template-columns: 1fr; }
+            .hero-inner { grid-template-columns: 1fr; text-align: center; }
+            .hero-text h1 { font-size: 1.9rem; }
+            .hero-text p { margin: 0 auto 25px; }
+            .hero-img { order: -1; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
             .prod-grid { grid-template-columns: 1fr; }
-            .gal-grid { grid-template-columns: repeat(2, 1fr); }
-            .contact-grid { grid-template-columns: 1fr; }
-            .foot-grid { grid-template-columns: 1fr; }
-            .form-row { grid-template-columns: 1fr; }
-            .payment-methods { grid-template-columns: 1fr; }
-            .features { grid-template-columns: 1fr; }
+            .why-grid { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav>
-        <div class="nav-wrap">
-            <div class="logo">
-                <div class="logo-icon">ক</div>
-                কোয়েল পাখি ফার্ম
-            </div>
-            <ul class="nav-links">
-                <li><a href="#home">হোম</a></li>
-                <li><a href="#about">আমাদের সম্পর্কে</a></li>
-                <li><a href="#products">পণ্য</a></li>
-                <li><a href="#order">অর্ডার করুন</a></li>
-                <li><a href="#gallery">গ্যালারি</a></li>
-                <li><a href="#contact">যোগাযোগ</a></li>
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">
+                <div class="nav-logo-icon">ক</div>
+                <span>কোয়েল পাখি ফার্ম</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="active">হোম</a></li>
+                <li><a href="about.html">আমাদের সম্পর্কে</a></li>
+                <li><a href="products.html">পণ্য</a></li>
+                <li><a href="order.html">অর্ডার করুন</a></li>
+                <li><a href="contact.html">যোগাযোগ</a></li>
             </ul>
-            <div class="mobile-toggle" onclick="toggleMenu()">&#9776;</div>
+            <button class="nav-mobile-btn" onclick="toggleMenu()">&#9776;</button>
         </div>
     </nav>
 
-    <!-- Hero -->
-    <section class="hero" id="home">
+    <!-- Hero Section -->
+    <section class="hero">
         <div class="container">
-            <h1>সেরা মানের <span>কোয়েল পাখি</span> ও ডিম</h1>
-            <p>বাংলাদেশের বিশ্বস্ত কোয়েল পাখি ফার্ম। সুস্থ পাখি ও তাজা ডিম সরাসরি আমাদের খামার থেকে আপনার দোরগোড়ায়।</p>
-            <a href="#order" class="btn btn-gold">এখনই কিনুন</a>
-            <a href="#about" class="btn btn-outline">আরও জানুন</a>
-            <img src="koyal_birds.jpg" alt="কোয়েল পাখি" class="hero-img">
-        </div>
-    </section>
-
-    <!-- About -->
-    <section id="about">
-        <div class="container">
-            <h2 class="sec-title">আমাদের ফার্ম</h2>
-            <div class="line"></div>
-            <div class="about-grid">
-                <div class="about-img">
-                    <img src="farm_gate_full.jpg" alt="ফার্মের প্রবেশদ্বার">
-                </div>
-                <div class="about-text">
-                    <h3>প্রাকৃতিক পরিবেশে লালিত পাখি</h3>
-                    <p>আমাদের কোয়েল পাখি ফার্মে প্রতিটি পাখি স্বচ্ছ বাতাস ও প্রাকৃতিক পরিবেশে লালিত হয়। আমরা ব্যবহার করি শুধুমাত্র জৈব খাদ্য।</p>
-                    <p>প্রতিটি পাখি টিকা দেওয়া, সুস্থ ও সক্রিয়। আমাদের বিশেষজ্ঞ দল প্রতিদিন পাখিগুলোর যত্ন নেন।</p>
-                    <div class="features">
-                        <div class="feat">
-                            <div class="feat-icon">&#10003;</div>
-                            <span>জৈব খাদ্য</span>
-                        </div>
-                        <div class="feat">
-                            <div class="feat-icon">&#10003;</div>
-                            <span>টিকা দেওয়া</span>
-                        </div>
-                        <div class="feat">
-                            <div class="feat-icon">&#10003;</div>
-                            <span>ফ্রি ডেলিভারি</span>
-                        </div>
-                        <div class="feat">
-                            <div class="feat-icon">&#10003;</div>
-                            <span>স্বাস্থ্য গ্যারান্টি</span>
-                        </div>
+            <div class="hero-inner">
+                <div class="hero-text">
+                    <h1>বাংলাদেশের <span>বিশ্বস্ত</span> কোয়েল পাখি ফার্ম</h1>
+                    <p>তাজা ডিম ও সুস্থ পাখি সরাসরি আমাদের খামার থেকে আপনার দোরগোড়ায়। প্রতিদিন ৪০+ ডিম উৎপাদন। জুলাই ২০২৫ থেকে আমাদের যাত্রা শুরু।</p>
+                    <div class="hero-btns">
+                        <a href="products.html" class="btn btn-gold">পণ্য দেখুন</a>
+                        <a href="order.html" class="btn btn-outline" style="color:white;border-color:white;">অর্ডার করুন</a>
                     </div>
+                </div>
+                <div class="hero-img">
+                    <img src="hero_birds.jpg" alt="কোয়েল পাখি" class="protect-img" oncontextmenu="return false;">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Products -->
-    <section class="products" id="products">
+    <!-- Stats Bar -->
+    <div class="stats-bar">
         <div class="container">
-            <h2 class="sec-title">আমাদের পণ্য</h2>
-            <p class="sec-sub">আপনার পছন্দের পণ্য বেছে নিন</p>
-            <div class="line"></div>
+            <div class="stats-grid">
+                <div class="stat">
+                    <h3>৪৫+</h3>
+                    <p>কোয়েল পাখি</p>
+                </div>
+                <div class="stat">
+                    <h3>৪০+</h3>
+                    <p>দৈনিক ডিম</p>
+                </div>
+                <div class="stat">
+                    <h3>১০০%</h3>
+                    <p>জৈব খাদ্য</p>
+                </div>
+                <div class="stat">
+                    <h3>ডেলিভারি</h3>
+                    <p>সারা বাংলাদেশ</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Products Preview -->
+    <section class="products-preview section">
+        <div class="container">
+            <h2 class="section-title">আমাদের পণ্য</h2>
+            <p class="section-sub">সরাসরি খামার থেকে সংগ্রহকৃত</p>
+            <div class="divider"></div>
             <div class="prod-grid">
                 <div class="prod-card">
                     <div class="prod-img">
-                        <img src="koyal_birds.jpg" alt="কোয়েল পাখি">
+                        <img src="birds_cage.jpg" alt="জীবন্ত কোয়েল পাখি" class="protect-img" oncontextmenu="return false;">
                     </div>
                     <div class="prod-info">
-                        <h3>কোয়েল পাখি (৫-৭০ টাকা)</h3>
-                        <p>বয়স ও প্রজাতি অনুযায়ী মূল্য পরিবর্তিত হয়। সুস্থ পাখি।</p>
-                        <div class="price-tag">
-                            <span class="price">৫-৭০ টাকা</span>
-                            <button class="btn btn-gold btn-sm" onclick="orderThis('কোয়েল পাখি')">কিনুন</button>
+                        <h3>জীবন্ত কোয়েল পাখি</h3>
+                        <p>সুস্থ, টিকা দেওয়া পাখি। পets ও বাণিজ্যিক উদ্দেশ্যে উপযোগী।</p>
+                        <div class="prod-price">
+                            <span class="price">৫০-৭০ টাকা</span>
+                            <a href="order.html?product=bird" class="btn btn-primary btn-sm">কিনুন</a>
                         </div>
                     </div>
                 </div>
                 <div class="prod-card">
                     <div class="prod-img">
-                        <img src="koyal_birds.jpg" alt="কোয়েল ডিম">
+                        <img src="eggs_basket.jpg" alt="তাজা কোয়েল ডিম" class="protect-img" oncontextmenu="return false;">
                     </div>
                     <div class="prod-info">
-                        <h3>কোয়েল ডিম (১৫-২২ টাকা/পিস)</h3>
-                        <p>তাজা ডিম, প্রতি হালি ৪ পিস। খাওয়ার ও বাচ্চা ফোটানোর জন্য উপযুক্ত।</p>
-                        <div class="price-tag">
+                        <h3>তাজা কোয়েল ডিম</h3>
+                        <p>প্রতিদিন সংগ্রহকৃত তাজা ডিম। খাওয়ার ও বাচ্চা ফোটানোর জন্য উপযুক্ত।</p>
+                        <div class="prod-price">
                             <span class="price">১৫-২২ টাকা</span>
-                            <button class="btn btn-gold btn-sm" onclick="orderThis('কোয়েল ডিম')">কিনুন</button>
+                            <a href="order.html?product=egg" class="btn btn-primary btn-sm">কিনুন</a>
                         </div>
                     </div>
                 </div>
                 <div class="prod-card">
                     <div class="prod-img">
-                        <img src="farm_equipment.jpg" alt="খাদ্য ও সরঞ্জাম">
+                        <img src="farm_cages.jpg" alt="খামার পরিদর্শন" class="protect-img" oncontextmenu="return false;">
                     </div>
                     <div class="prod-info">
-                        <h3>খাদ্য ও সরঞ্জাম</h3>
-                        <p>পাখির খাদ্য, পানির পাত্র, খাঁচা ও অন্যান্য সরঞ্জাম।</p>
-                        <div class="price-tag">
+                        <h3>খামার পরিদর্শন</h3>
+                        <p>সরাসরি এসে পাখি ও ডিম সংগ্রহ করুন। সাপ্তাহিক ৬ দিন খোলা।</p>
+                        <div class="prod-price">
                             <span class="price">যোগাযোগ করুন</span>
-                            <button class="btn btn-gold btn-sm" onclick="orderThis('খাদ্য ও সরঞ্জাম')">কিনুন</button>
+                            <a href="contact.html" class="btn btn-primary btn-sm">ঠিকানা</a>
                         </div>
                     </div>
                 </div>
@@ -603,270 +338,104 @@
         </div>
     </section>
 
-    <!-- Order Section -->
-    <section class="order" id="order">
+    <!-- Why Choose Us -->
+    <section class="why-us section">
         <div class="container">
-            <h2 class="sec-title">অর্ডার করুন</h2>
-            <p class="sec-sub">সহজেই অর্ডার করুন - বিকাশ, নগদ, রকেট</p>
-            <div class="line"></div>
-            <div class="order-box">
-                <form id="orderForm" onsubmit="submitOrder(event)">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>আপনার নাম *</label>
-                            <input type="text" id="name" placeholder="পুরো নাম লিখুন" required>
-                        </div>
-                        <div class="form-group">
-                            <label>মোবাইল নম্বর *</label>
-                            <input type="tel" id="phone" placeholder="০১XXXXXXXXX" required>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>পণ্য নির্বাচন করুন *</label>
-                            <select id="product" required>
-                                <option value="">পণ্য বেছে নিন...</option>
-                                <option value="bird">কোয়েল পাখি (৫-৭০ টাকা)</option>
-                                <option value="egg">কোয়েল ডিম (১৫-২২ টাকা/পিস)</option>
-                                <option value="food">খাদ্য ও সরঞ্জাম</option>
-                                <option value="multiple">একাধিক পণ্য</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>পরিমাণ *</label>
-                            <input type="number" id="qty" min="1" value="1" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>ঠিকানা *</label>
-                        <textarea id="address" placeholder="আপনার সম্পূর্ণ ঠিকানা (জেলা, থানা, গ্রাম/এলাকা)" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>পেমেন্ট মাধ্যম *</label>
-                        <div class="payment-methods">
-                            <div class="pay-option" onclick="selectPayment(this, 'bkash')">
-                                <h4>bKash</h4>
-                                <p>Send Money</p>
-                            </div>
-                            <div class="pay-option" onclick="selectPayment(this, 'nagad')">
-                                <h4>Nagad</h4>
-                                <p>Send Money</p>
-                            </div>
-                            <div class="pay-option" onclick="selectPayment(this, 'rocket')">
-                                <h4>Rocket</h4>
-                                <p>Send Money</p>
-                            </div>
-                        </div>
-                        <input type="hidden" id="payment" required>
-                    </div>
-                    <div class="form-group">
-                        <label>ট্রানজাকশন ID (পেমেন্টের পর) *</label>
-                        <input type="text" id="txid" placeholder="bKash/Nagad/Rocket ট্রানজাকশন ID" required>
-                    </div>
-                    <div class="form-group">
-                        <label>বিশেষ নির্দেশনা (ঐচ্ছিক)</label>
-                        <textarea id="note" placeholder="যদি কিছু বিশেষ চাওয়া থাকে..."></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-gold" style="width:100%; font-size:1.1rem; padding:14px;">
-                        অর্ডার কনফার্ম করুন
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery -->
-    <section id="gallery">
-        <div class="container">
-            <h2 class="sec-title">ফার্মের ছবি</h2>
-            <div class="line"></div>
-            <div class="gal-grid">
-                <div class="gal-item">
-                    <img src="koyal_birds.jpg" alt="পাখি">
-                    <div class="gal-overlay">পাখির খামার</div>
+            <h2 class="section-title">কেন আমাদের বেছে নেবেন</h2>
+            <p class="section-sub">গুণমান ও বিশ্বস্ততাই আমাদের পরিচয়</p>
+            <div class="divider"></div>
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon">&#10003;</div>
+                    <h4>১০০% জৈব খাদ্য</h4>
+                    <p>কোনো রাসায়নিক মিশ্রণ ছাড়াই প্রাকৃতিক খাদ্য পরিবেশন</p>
                 </div>
-                <div class="gal-item">
-                    <img src="farm_gate.jpg" alt="ফার্মের গেট">
-                    <div class="gal-overlay">ফার্মের গেট</div>
+                <div class="why-card">
+                    <div class="why-icon">&#9829;</div>
+                    <h4>টিকা দেওয়া পাখি</h4>
+                    <p>নিয়মিত স্বাস্থ্য পরীক্ষা ও টিকাকরণ সম্পন্ন</p>
                 </div>
-                <div class="gal-item">
-                    <img src="farm_equipment.jpg" alt="সরঞ্জাম">
-                    <div class="gal-overlay">খাদ্য ও সরঞ্জাম</div>
+                <div class="why-card">
+                    <div class="why-icon">&#9733;</div>
+                    <h4>তাজা ডিম প্রতিদিন</h4>
+                    <p>প্রতিদিন সকালে সংগ্রহকৃত, সরাসরি ডেলিভারি</p>
                 </div>
-                <div class="gal-item">
-                    <img src="farm_gate_full.jpg" alt="ফার্মের দৃশ্য">
-                    <div class="gal-overlay">ফার্মের সম্পূর্ণ দৃশ্য</div>
+                <div class="why-card">
+                    <div class="why-icon">&#9742;</div>
+                    <h4>২৪/৭ সাপোর্ট</h4>
+                    <p>যেকোনো সময় কল বা WhatsApp এ যোগাযোগ</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact -->
-    <section class="contact" id="contact">
+    <!-- CTA -->
+    <section class="cta">
         <div class="container">
-            <h2 class="sec-title">যোগাযোগ</h2>
-            <div class="line"></div>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3>আমাদের সাথে যোগাযোগ করুন</h3>
-                    <div class="c-item">
-                        <div class="c-icon">&#9742;</div>
-                        <div class="c-detail">
-                            <h4>ফোন / WhatsApp</h4>
-                            <p><a href="tel:01729343444">01729343444</a></p>
-                        </div>
-                    </div>
-                    <div class="c-item">
-                        <div class="c-icon">&#9993;</div>
-                        <div class="c-detail">
-                            <h4>ইমেইল</h4>
-                            <p><a href="mailto:koyalbirdfarm@gmail.com">koyalbirdfarm@gmail.com</a></p>
-                        </div>
-                    </div>
-                    <div class="c-item">
-                        <div class="c-icon">&#9734;</div>
-                        <div class="c-detail">
-                            <h4>ঠিকানা</h4>
-                            <p>কোয়েল পাখি ফার্ম, বাংলাদেশ</p>
-                        </div>
-                    </div>
-                    <div class="c-item">
-                        <div class="c-icon">&#9855;</div>
-                        <div class="c-detail">
-                            <h4>কর্মঘণ্টা</h4>
-                            <p>শনি - বৃহঃ: সকাল ৮টা - সন্ধ্যা ৬টা<br>শুক্র: সকাল ৯টা - দুপুর ২টা</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="map-box">
-                    <h4>দ্রুত যোগাযোগ</h4>
-                    <p>সরাসরি কল করুন</p>
-                    <div class="big-number">01729343444</div>
-                    <p>বিকাশ / নগদ / রকেট (পারসোনাল নম্বর)</p>
-                    <a href="https://wa.me/8801729343444" class="whatsapp-btn" target="_blank">
-                        WhatsApp এ মেসেজ করুন
-                    </a>
-                </div>
-            </div>
+            <h2>আজই অর্ডার করুন</h2>
+            <p>ফোনে অর্ডার দিন বা সরাসরি WhatsApp এ মেসেজ করুন। দ্রুত ডেলিভারি পান।</p>
+            <a href="order.html" class="btn btn-gold" style="font-size:1.1rem;padding:14px 35px;">এখনই অর্ডার করুন</a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="footer">
         <div class="container">
-            <div class="foot-grid">
-                <div class="foot-brand">
+            <div class="footer-grid">
+                <div class="footer-brand">
                     <h3>কোয়েল পাখি ফার্ম</h3>
-                    <p>বাংলাদেশের বিশ্বস্ত কোয়েল পাখি সরবরাহকারী। সুস্থ পাখি, তাজা ডিম ও সেরা সেবা আমাদের প্রতিশ্রুতি।</p>
+                    <p>বাংলাদেশের বিশ্বস্ত কোয়েল পাখি ও ডিম সরবরাহকারী। জুলাই ২০২৫ থেকে আমাদের যাত্রা। ভবিষ্যতে অন্যান্য কৃষি পণ্য যুক্ত হবে।</p>
+                    <div class="footer-phone">&#9742; 01729343444</div>
                 </div>
-                <div class="foot-links">
-                    <h4>লিংক</h4>
+                <div class="footer-links">
+                    <h4>পেজ</h4>
                     <ul>
-                        <li><a href="#home">হোম</a></li>
-                        <li><a href="#about">আমাদের সম্পর্কে</a></li>
-                        <li><a href="#products">পণ্য</a></li>
-                        <li><a href="#contact">যোগাযোগ</a></li>
+                        <li><a href="index.html">হোম</a></li>
+                        <li><a href="about.html">আমাদের সম্পর্কে</a></li>
+                        <li><a href="products.html">পণ্য</a></li>
+                        <li><a href="contact.html">যোগাযোগ</a></li>
                     </ul>
                 </div>
-                <div class="foot-links">
+                <div class="footer-links">
                     <h4>সেবা</h4>
                     <ul>
-                        <li><a href="#">হোম ডেলিভারি</a></li>
-                        <li><a href="#">পাখির যত্ন নির্দেশিকা</a></li>
-                        <li><a href="#">পেমেন্ট পদ্ধতি</a></li>
-                        <li><a href="#">রিটার্ন পলিসি</a></li>
+                        <li><a href="order.html">অর্ডার করুন</a></li>
+                        <li><a href="products.html">পণ্য তালিকা</a></li>
+                        <li><a href="contact.html">ডেলিভারি তথ্য</a></li>
+                        <li><a href="about.html">খামার পরিদর্শন</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>যোগাযোগ</h4>
+                    <ul>
+                        <li><a href="tel:01729343444">ফোন: 01729343444</a></li>
+                        <li><a href="https://wa.me/8801729343444" target="_blank">WhatsApp</a></li>
+                        <li><a href="mailto:koyalbirdfarm@gmail.com">ইমেইল</a></li>
+                        <li>বাংলাদেশ</li>
                     </ul>
                 </div>
             </div>
-            <div class="foot-bottom">
+            <div class="footer-bottom">
                 <p>&copy; ২০২৬ কোয়েল পাখি ফার্ম। সর্বস্বত্ব সংরক্ষিত।</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(a => {
-            a.addEventListener('click', e => {
-                e.preventDefault();
-                document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+        // Mobile menu toggle
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('show');
+        }
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(a => {
+            a.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('show');
             });
         });
-
-        // Mobile menu
-        function toggleMenu() {
-            const nav = document.querySelector('.nav-links');
-            if (nav.style.display === 'flex') {
-                nav.style.display = 'none';
-            } else {
-                nav.style.display = 'flex';
-                nav.style.position = 'absolute';
-                nav.style.top = '50px';
-                nav.style.left = '0';
-                nav.style.right = '0';
-                nav.style.background = 'var(--green)';
-                nav.style.flexDirection = 'column';
-                nav.style.padding = '20px';
-                nav.style.gap = '15px';
-            }
-        }
-
-        // Order button
-        function orderThis(product) {
-            document.querySelector('#order').scrollIntoView({ behavior: 'smooth' });
-            setTimeout(() => {
-                const select = document.getElementById('product');
-                for (let i = 0; i < select.options.length; i++) {
-                    if (select.options[i].text.includes(product)) {
-                        select.selectedIndex = i;
-                        break;
-                    }
-                }
-            }, 500);
-        }
-
-        // Payment selection
-        function selectPayment(el, method) {
-            document.querySelectorAll('.pay-option').forEach(o => o.classList.remove('active'));
-            el.classList.add('active');
-            document.getElementById('payment').value = method;
-        }
-
-        // Submit order
-        function submitOrder(e) {
-            e.preventDefault();
-            const payment = document.getElementById('payment').value;
-            if (!payment) {
-                alert('অনুগ্রহ করে একটি পেমেন্ট মাধ্যম নির্বাচন করুন!');
-                return;
-            }
-
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const product = document.getElementById('product');
-            const productText = product.options[product.selectedIndex].text;
-            const qty = document.getElementById('qty').value;
-            const address = document.getElementById('address').value;
-            const txid = document.getElementById('txid').value;
-
-            const msg = `নতুন অর্ডার!
-
-নাম: ${name}
-ফোন: ${phone}
-পণ্য: ${productText}
-পরিমাণ: ${qty}
-ঠিকানা: ${address}
-পেমেন্ট: ${payment.toUpperCase()}
-TxID: ${txid}`;
-
-            // Send WhatsApp
-            const waMsg = encodeURIComponent(msg);
-            window.open(`https://wa.me/8801729343444?text=${waMsg}`, '_blank');
-
-            alert('অর্ডার তথ্য WhatsApp এ পাঠানো হয়েছে! আমরা শীঘ্রই যোগাযোগ করব।');
-            e.target.reset();
-            document.querySelectorAll('.pay-option').forEach(o => o.classList.remove('active'));
-        }
+        // Disable right click on images
+        document.addEventListener('contextmenu', e => {
+            if (e.target.tagName === 'IMG') e.preventDefault();
+        });
     </script>
 </body>
 </html>
